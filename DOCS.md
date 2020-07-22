@@ -5,6 +5,12 @@
 - [Auth](#auth)
 	- [Authenticate](#authenticate)
 	
+- [Sets](#sets)
+	- [Create sets](#create-sets)
+	- [Delete sets](#delete-sets)
+	- [Retrieve sets](#retrieve-sets)
+	- [Update sets](#update-sets)
+	
 - [User](#user)
 	- [Create user](#create-user)
 	- [Delete user](#delete-user)
@@ -35,6 +41,76 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Master access_token.</p>							|
+
+# Sets
+
+## Create sets
+
+
+
+	POST /sets
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>admin access token.</p>							|
+| setId			| 			|  <p>Sets's setId.</p>							|
+| name			| 			|  <p>Sets's name.</p>							|
+| description			| 			|  <p>Sets's description.</p>							|
+| pieces			| 			|  <p>Sets's pieces.</p>							|
+| age			| 			|  <p>Sets's age.</p>							|
+| price			| 			|  <p>Sets's price.</p>							|
+
+## Delete sets
+
+
+
+	DELETE /sets/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>admin access token.</p>							|
+
+## Retrieve sets
+
+
+
+	GET /sets
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| q			| String			| **optional** <p>Query to search.</p>							|
+| page			| Number			| **optional** <p>Page number.</p>							|
+| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
+| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
+| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
+
+## Update sets
+
+
+
+	PUT /sets/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>admin access token.</p>							|
+| setId			| 			|  <p>Sets's setId.</p>							|
+| name			| 			|  <p>Sets's name.</p>							|
+| description			| 			|  <p>Sets's description.</p>							|
+| pieces			| 			|  <p>Sets's pieces.</p>							|
+| age			| 			|  <p>Sets's age.</p>							|
+| price			| 			|  <p>Sets's price.</p>							|
 
 # User
 
