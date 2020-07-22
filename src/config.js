@@ -39,7 +39,8 @@ const config = {
   test: { },
   development: {
     mongo: {
-      uri: 'mongodb://localhost/josh-buys-stuff-dev',
+      uri: `mongodb://${process.env.LOCAL_MONGODB_URI}/jbs`,
+      // uri: 'mongodb://localhost/josh-buys-stuff-dev',
       options: {
         debug: true
       }
