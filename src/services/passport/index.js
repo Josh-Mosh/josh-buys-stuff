@@ -1,6 +1,6 @@
 import passport from 'passport'
 import { Schema } from 'bodymen'
-import { BasicStrategy } from 'passport-http'
+import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as BearerStrategy } from 'passport-http-bearer'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import { jwtSecret, masterKey } from '../../config'
@@ -33,12 +33,14 @@ export const token = ({ required, roles = User.roles } = {}) => (req, res, next)
     })
   })(req, res, next)
 
-passport.use('password', new BasicStrategy((email, password, done) => {
-  const userSchema = new Schema({ email: schema.tree.email, password: schema.tree.password })
+passport.use('password', new LocalStrategy(
+  {usernameField: 'email', passwordField: 'password' },
+  (email, password, done) => {
 
+  const userSchema = new Schema({ email: schema.tree.email, password: schema.tree.password })
   userSchema.validate({ email, password }, (err) => {
     if (err) done(err)
-  })
+  });
 
   User.findOne({ email }).then((user) => {
     if (!user) {
@@ -49,8 +51,8 @@ passport.use('password', new BasicStrategy((email, password, done) => {
       done(null, user)
       return null
     }).catch(done)
-  })
-}))
+  });
+}));
 
 passport.use('master', new BearerStrategy((token, done) => {
   if (token === masterKey) {
