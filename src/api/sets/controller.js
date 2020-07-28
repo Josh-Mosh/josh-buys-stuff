@@ -4,31 +4,20 @@ import { Sets } from '.'
 export const create = ({ body }, res, next) =>
   Sets.create(body)
     .then((sets) => sets.view(true))
-    .then(success(res, 201))
+    .then(success(res, 201, 'set'))
     .catch(next)
-
-// export const index = ({ querymen: { query, select, cursor } }, res, next) =>
-//   Sets.count(query)
-//     .then(count => Sets.find(query, select, cursor)
-//       .then((sets) => ({
-//         count,
-//         rows: sets.map((sets) => sets.view())
-//       }))
-//     )
-//     .then(success(res))
-//     .catch(next)
 
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
   Sets.find(query, select, cursor)
     .then((sets) => sets.map((set) => set.view()))
-    .then(success(res))
+    .then(success(res, null, 'sets'))
     .catch(next)
 
 export const show = ({ params }, res, next) =>
   Sets.findById(params.id)
     .then(notFound(res))
     .then((sets) => sets ? sets.view() : null)
-    .then(success(res))
+    .then(success(res, null, 'sets'))
     .catch(next)
 
 // export const update = ({ bodymen: { body }, params }, res, next) => {

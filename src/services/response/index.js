@@ -1,6 +1,7 @@
-export const success = (res, status) => (entity) => {
+export const success = (res, status, modelName) => (entity) => {
   if (entity) {
-    res.status(status || 200).json(entity)
+    let payload = modelName ? { [modelName]: entity } : entity;
+    res.status(status || 200).json(payload)
   }
   return null
 }
