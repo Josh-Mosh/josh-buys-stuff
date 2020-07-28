@@ -7,7 +7,7 @@ import { schema } from './model'
 export Sets, { schema } from './model'
 
 const router = new Router()
-const { setId, name, description, pieces, age, price, imgUrl } = schema.tree
+const { setId, name, description, pieces, age, price, imgUrl, affiliateLink, favorite, videoId, videoUploaded } = schema.tree
 
 /**
  * @api {post} /sets Create sets
@@ -28,7 +28,7 @@ const { setId, name, description, pieces, age, price, imgUrl } = schema.tree
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ setId, name, description, pieces, age, price, imgUrl }),
+  body({ setId, name, description, pieces, age, price, imgUrl, affiliateLink, favorite, videoId, videoUploaded }),
   create)
 
 /**
@@ -74,7 +74,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ setId, name, description, pieces, age, price, imgUrl }),
+  body({ setId, name, description, pieces, age, price, imgUrl, affiliateLink, favorite, videoId, videoUploaded }),
   update)
 
 /**

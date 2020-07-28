@@ -11,7 +11,7 @@ const setsSchema = new Schema({
     type: String
   },
   pieces: {
-    type: String
+    type: Number
   },
   age: {
     type: String
@@ -24,6 +24,15 @@ const setsSchema = new Schema({
   },
   affiliateLink: {
     type: String
+  },
+  favorite: {
+    type: Boolean
+  },
+  videoId: {
+    type: String
+  },
+  videoUploaded: {
+    type: Date
   }
 }, {
   timestamps: true,
@@ -46,6 +55,9 @@ setsSchema.methods = {
       price: this.price,
       imgUrl: this.imgUrl,
       affiliateLink: this.affiliateLink,
+      favorite: this.favorite,
+      videoId: this.videoId,
+      videoUploaded: this.videoUploaded,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
