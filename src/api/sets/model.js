@@ -18,6 +18,9 @@ const setsSchema = new Schema({
   },
   price: {
     type: String
+  },
+  imgUrl: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -38,6 +41,7 @@ setsSchema.methods = {
       pieces: this.pieces,
       age: this.age,
       price: this.price,
+      imgUrl: this.imgUrl,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

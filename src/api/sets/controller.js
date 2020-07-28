@@ -1,7 +1,7 @@
 import { success, notFound } from '../../services/response/'
 import { Sets } from '.'
 
-export const create = ({ bodymen: { body } }, res, next) =>
+export const create = ({ body }, res, next) =>
   Sets.create(body)
     .then((sets) => sets.view(true))
     .then(success(res, 201))

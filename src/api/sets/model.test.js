@@ -3,7 +3,7 @@ import { Sets } from '.'
 let sets
 
 beforeEach(async () => {
-  sets = await Sets.create({ setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test' })
+  sets = await Sets.create({ setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test', imgUrl: 'test' })
 })
 
 describe('view', () => {
@@ -17,6 +17,7 @@ describe('view', () => {
     expect(view.pieces).toBe(sets.pieces)
     expect(view.age).toBe(sets.age)
     expect(view.price).toBe(sets.price)
+    expect(view.imgUrl).toBe(sets.imgUrl)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })
@@ -31,6 +32,7 @@ describe('view', () => {
     expect(view.pieces).toBe(sets.pieces)
     expect(view.age).toBe(sets.age)
     expect(view.price).toBe(sets.price)
+    expect(view.imgUrl).toBe(sets.imgUrl)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })
