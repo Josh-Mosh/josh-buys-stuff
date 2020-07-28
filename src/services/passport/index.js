@@ -22,7 +22,7 @@ export const password = () => (req, res, next) =>
 export const master = () =>
   passport.authenticate('master', { session: false })
 
-export const token = ({ required, roles = User.roles } = {}) => (req, res, next) =>
+export const token = ({ required, roles = User.roles } = {}) => (req, res, next) => {
   passport.authenticate('token', { session: false }, (err, user, info) => {
     if (err || (required && !user) || (required && !~roles.indexOf(user.role))) {
       return res.status(401).end()
@@ -32,6 +32,7 @@ export const token = ({ required, roles = User.roles } = {}) => (req, res, next)
       next()
     })
   })(req, res, next)
+}
 
 passport.use('password', new LocalStrategy(
   {usernameField: 'email', passwordField: 'password' },
