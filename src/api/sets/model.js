@@ -21,6 +21,9 @@ const setsSchema = new Schema({
   },
   imgUrl: {
     type: String
+  },
+  affiliateLink: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -42,6 +45,7 @@ setsSchema.methods = {
       age: this.age,
       price: this.price,
       imgUrl: this.imgUrl,
+      affiliateLink: this.affiliateLink,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

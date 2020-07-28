@@ -20,7 +20,7 @@ beforeEach(async () => {
 test('POST /sets 201 (admin)', async () => {
   const { status, body } = await request(app())
     .post(`${apiRoot}`)
-    .send({ access_token: adminSession, setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test', imgUrl: 'test' })
+    .send({ access_token: adminSession, setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test', imgUrl: 'test', affiliateLink: 'test' })
   expect(status).toBe(201)
   expect(typeof body).toEqual('object')
   expect(body.setId).toEqual('test')
@@ -30,6 +30,7 @@ test('POST /sets 201 (admin)', async () => {
   expect(body.age).toEqual('test')
   expect(body.price).toEqual('test')
   expect(body.imgUrl).toEqual('test')
+  expect(body.affiliateLink).toEqual('test')
 })
 
 test('POST /sets 401 (user)', async () => {
@@ -70,7 +71,7 @@ test('GET /sets/:id 404', async () => {
 test('PUT /sets/:id 200 (admin)', async () => {
   const { status, body } = await request(app())
     .put(`${apiRoot}/${sets.id}`)
-    .send({ access_token: adminSession, setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test', imgUrl: 'test' })
+    .send({ access_token: adminSession, setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test', imgUrl: 'test', affiliateLink: 'test' })
   expect(status).toBe(200)
   expect(typeof body).toEqual('object')
   expect(body.id).toEqual(sets.id)
@@ -81,6 +82,7 @@ test('PUT /sets/:id 200 (admin)', async () => {
   expect(body.age).toEqual('test')
   expect(body.price).toEqual('test')
   expect(body.imgUrl).toEqual('test')
+  expect(body.affiliateLink).toEqual('test')
 })
 
 test('PUT /sets/:id 401 (user)', async () => {
@@ -99,7 +101,7 @@ test('PUT /sets/:id 401', async () => {
 test('PUT /sets/:id 404 (admin)', async () => {
   const { status } = await request(app())
     .put(apiRoot + '/123456789098765432123456')
-    .send({ access_token: adminSession, setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test' })
+    .send({ access_token: adminSession, setId: 'test', name: 'test', description: 'test', pieces: 'test', age: 'test', price: 'test', affiliateLink: 'test' })
   expect(status).toBe(404)
 })
 
