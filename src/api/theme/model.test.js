@@ -3,7 +3,7 @@ import { Theme } from '.'
 let theme
 
 beforeEach(async () => {
-  theme = await Theme.create({ name: 'test', logoUrl: 'test' })
+  theme = await Theme.create({ name: 'test', logoUrl: 'test', bgImageUrl: 'test', fontTheme: 'test' })
 })
 
 describe('view', () => {
@@ -13,6 +13,8 @@ describe('view', () => {
     expect(view.id).toBe(theme.id)
     expect(view.name).toBe(theme.name)
     expect(view.logoUrl).toBe(theme.logoUrl)
+    expect(view.bgImageUrl).toBe(theme.bgImageUrl)
+    expect(view.fontTheme).toBe(theme.fontTheme)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })
@@ -23,6 +25,8 @@ describe('view', () => {
     expect(view.id).toBe(theme.id)
     expect(view.name).toBe(theme.name)
     expect(view.logoUrl).toBe(theme.logoUrl)
+    expect(view.bgImageUrl).toBe(theme.bgImageUrl)
+    expect(view.fontTheme).toBe(theme.fontTheme)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })

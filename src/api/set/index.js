@@ -4,26 +4,26 @@ import { middleware as body } from 'bodymen'
 import { token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
-export Sets, { schema } from './model'
+export Set, { schema } from './model'
 
 const router = new Router()
 const { setId, name, description, pieces, age, price, imgUrl, affiliateLink, favorite, videoId, videoUploaded } = schema.tree
 
 /**
- * @api {post} /sets Create sets
- * @apiName CreateSets
- * @apiGroup Sets
+ * @api {post} /set Create set
+ * @apiName CreateSet
+ * @apiGroup Set
  * @apiPermission admin
  * @apiParam {String} access_token admin access token.
- * @apiParam setId Sets's setId.
- * @apiParam name Sets's name.
- * @apiParam description Sets's description.
- * @apiParam pieces Sets's pieces.
- * @apiParam age Sets's age.
- * @apiParam price Sets's price.
- * @apiSuccess {Object} sets Sets's data.
+ * @apiParam setId Set's setId.
+ * @apiParam name Set's name.
+ * @apiParam description Set's description.
+ * @apiParam pieces Set's pieces.
+ * @apiParam age Set's age.
+ * @apiParam price Set's price.
+ * @apiSuccess {Object} set Set's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Sets not found.
+ * @apiError 404 Set not found.
  * @apiError 401 admin access only.
  */
 router.post('/',
@@ -32,12 +32,12 @@ router.post('/',
   create)
 
 /**
- * @api {get} /sets Retrieve sets
- * @apiName RetrieveSets
- * @apiGroup Sets
+ * @api {get} /set Retrieve set
+ * @apiName RetrieveSet
+ * @apiGroup Set
  * @apiUse listParams
- * @apiSuccess {Number} count Total amount of sets.
- * @apiSuccess {Object[]} rows List of sets.
+ * @apiSuccess {Number} count Total amount of set.
+ * @apiSuccess {Object[]} rows List of set.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
 router.get('/',
@@ -45,31 +45,31 @@ router.get('/',
   index)
 
 /**
- * @api {get} /sets/:id Retrieve sets
- * @apiName RetrieveSets
- * @apiGroup Sets
- * @apiSuccess {Object} sets Sets's data.
+ * @api {get} /set/:id Retrieve set
+ * @apiName RetrieveSet
+ * @apiGroup Set
+ * @apiSuccess {Object} set Set's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Sets not found.
+ * @apiError 404 Set not found.
  */
 router.get('/:id',
   show)
 
 /**
- * @api {put} /sets/:id Update sets
- * @apiName UpdateSets
- * @apiGroup Sets
+ * @api {put} /set/:id Update set
+ * @apiName UpdateSet
+ * @apiGroup Set
  * @apiPermission admin
  * @apiParam {String} access_token admin access token.
- * @apiParam setId Sets's setId.
- * @apiParam name Sets's name.
- * @apiParam description Sets's description.
- * @apiParam pieces Sets's pieces.
- * @apiParam age Sets's age.
- * @apiParam price Sets's price.
- * @apiSuccess {Object} sets Sets's data.
+ * @apiParam setId Set's setId.
+ * @apiParam name Set's name.
+ * @apiParam description Set's description.
+ * @apiParam pieces Set's pieces.
+ * @apiParam age Set's age.
+ * @apiParam price Set's price.
+ * @apiSuccess {Object} set Set's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Sets not found.
+ * @apiError 404 Set not found.
  * @apiError 401 admin access only.
  */
 router.put('/:id',
@@ -78,13 +78,13 @@ router.put('/:id',
   update)
 
 /**
- * @api {delete} /sets/:id Delete sets
- * @apiName DeleteSets
- * @apiGroup Sets
+ * @api {delete} /set/:id Delete set
+ * @apiName DeleteSet
+ * @apiGroup Set
  * @apiPermission admin
  * @apiParam {String} access_token admin access token.
  * @apiSuccess (Success 204) 204 No Content.
- * @apiError 404 Sets not found.
+ * @apiError 404 Set not found.
  * @apiError 401 admin access only.
  */
 router.delete('/:id',

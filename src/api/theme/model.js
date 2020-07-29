@@ -6,6 +6,12 @@ const themeSchema = new Schema({
   },
   logoUrl: {
     type: String
+  },
+  bgImageUrl: {
+    type: String
+  },
+  fontTheme: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -22,6 +28,8 @@ themeSchema.methods = {
       id: this.id,
       name: this.name,
       logoUrl: this.logoUrl,
+      bgImageUrl: this.bgImageUrl,
+      fontTheme: this.fontTheme,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

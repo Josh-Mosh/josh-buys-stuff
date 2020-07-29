@@ -3,7 +3,7 @@ import { apiRoot } from '../../config'
 import { signSync } from '../../services/jwt'
 import express from '../../services/express'
 import { User } from '../user'
-import routes, { Sets } from '.'
+import routes, { Set } from '.'
 
 const app = () => express(apiRoot, routes)
 

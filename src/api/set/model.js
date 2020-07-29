@@ -1,6 +1,10 @@
 import mongoose, { Schema } from 'mongoose'
 
-const setsSchema = new Schema({
+const setSchema = new Schema({
+  theme: {
+    type: Schema.ObjectId,
+    ref: 'Theme'
+  },
   setId: {
     type: String
   },
@@ -42,7 +46,7 @@ const setsSchema = new Schema({
   }
 })
 
-setsSchema.methods = {
+setSchema.methods = {
   view (full) {
     const view = {
       // simple view
@@ -69,7 +73,7 @@ setsSchema.methods = {
   }
 }
 
-const model = mongoose.model('Sets', setsSchema)
+const model = mongoose.model('Set', setSchema)
 
 export const schema = model.schema
 export default model

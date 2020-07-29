@@ -20,11 +20,13 @@ beforeEach(async () => {
 test('POST /themes 201 (admin)', async () => {
   const { status, body } = await request(app())
     .post(`${apiRoot}`)
-    .send({ access_token: adminSession, name: 'test', logoUrl: 'test' })
+    .send({ access_token: adminSession, name: 'test', logoUrl: 'test', bgImageUrl: 'test', fontTheme: 'test' })
   expect(status).toBe(201)
   expect(typeof body).toEqual('object')
   expect(body.name).toEqual('test')
   expect(body.logoUrl).toEqual('test')
+  expect(body.bgImageUrl).toEqual('test')
+  expect(body.fontTheme).toEqual('test')
 })
 
 test('POST /themes 401 (user)', async () => {
@@ -64,12 +66,14 @@ test('GET /themes/:id 404', async () => {
 test('PUT /themes/:id 200 (admin)', async () => {
   const { status, body } = await request(app())
     .put(`${apiRoot}/${theme.id}`)
-    .send({ access_token: adminSession, name: 'test', logoUrl: 'test' })
+    .send({ access_token: adminSession, name: 'test', logoUrl: 'test', bgImageUrl: 'test', fontTheme: 'test' })
   expect(status).toBe(200)
   expect(typeof body).toEqual('object')
   expect(body.id).toEqual(theme.id)
   expect(body.name).toEqual('test')
   expect(body.logoUrl).toEqual('test')
+  expect(body.bgImageUrl).toEqual('test')
+  expect(body.fontTheme).toEqual('test')
 })
 
 test('PUT /themes/:id 401 (user)', async () => {
@@ -88,7 +92,7 @@ test('PUT /themes/:id 401', async () => {
 test('PUT /themes/:id 404 (admin)', async () => {
   const { status } = await request(app())
     .put(apiRoot + '/123456789098765432123456')
-    .send({ access_token: adminSession, name: 'test', logoUrl: 'test' })
+    .send({ access_token: adminSession, name: 'test', logoUrl: 'test', bgImageUrl: 'test', fontTheme: 'test' })
   expect(status).toBe(404)
 })
 
