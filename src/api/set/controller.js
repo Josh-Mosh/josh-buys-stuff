@@ -1,11 +1,13 @@
 import { success, notFound } from '../../services/response/'
 import { Set } from '.'
 
-export const create = ({ body }, res, next) =>
-  Set.create(body)
+export const create = ({ body }, res, next) => {
+  let newSet = body.set ? body.set : {};
+  Set.create(newSet)
     .then((set) => set.view(true))
     .then(success(res, 201, 'set'))
     .catch(next)
+}
 
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
   Set.find(query, select, cursor)
@@ -21,10 +23,10 @@ export const show = ({ params }, res, next) =>
     .catch(next)
 
 export const update = ({ body, params }, res, next) => {
-  let newSet = body.set ? body.set : {};
+  let setToUpdate = body.set ? body.set : {};
   Set.findById(params.id)
     .then(notFound(res))
-    .then((set) => set ? Object.assign(set, newSet).save() : null)
+    .then((set) => set ? Object.assign(set, setToUpdate).save() : null)
     .then((set) => set ? set.view(true) : null)
     .then(success(res, null, 'set'))
     .catch(next)

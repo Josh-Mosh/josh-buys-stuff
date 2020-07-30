@@ -10,6 +10,9 @@ const themeSchema = new Schema({
   bgImageUrl: {
     type: String
   },
+  bgColor: {
+    type: String
+  },
   fontTheme: {
     type: String
   }
@@ -29,6 +32,7 @@ themeSchema.methods = {
       name: this.name,
       logoUrl: this.logoUrl,
       bgImageUrl: this.bgImageUrl,
+      bgColor: this.bgColor,
       fontTheme: this.fontTheme,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt

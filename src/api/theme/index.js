@@ -7,7 +7,7 @@ import { schema } from './model'
 export Theme, { schema } from './model'
 
 const router = new Router()
-const { name, logoUrl, bgImageUrl, fontTheme } = schema.tree
+const { name, logoUrl, bgImageUrl, bgColor, fontTheme } = schema.tree
 
 /**
  * @api {post} /themes Create theme
@@ -24,7 +24,7 @@ const { name, logoUrl, bgImageUrl, fontTheme } = schema.tree
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ name, logoUrl, bgImageUrl, fontTheme }),
+  body({ name, logoUrl, bgImageUrl, bgColor, fontTheme }),
   create)
 
 /**
@@ -65,7 +65,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ name, logoUrl, bgImageUrl, fontTheme }),
+  body({ name, logoUrl, bgImageUrl, bgColor, fontTheme }),
   update)
 
 /**
