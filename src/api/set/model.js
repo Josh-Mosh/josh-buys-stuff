@@ -50,6 +50,7 @@ setSchema.methods = {
   view (full) {
     const view = {
       // simple view
+      theme: this.theme,
       id: this.id,
       setId: this.setId,
       name: this.name,
