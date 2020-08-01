@@ -9,11 +9,12 @@ export const create = ({ body }, res, next) => {
     .catch(next)
 }
 
-export const index = ({ querymen: { query, select, cursor } }, res, next) =>
+export const index = ({ query, select, cursor }, res, next) => {
   Set.find(query, select, cursor)
     .then((set) => set.map((set) => set.view()))
     .then(success(res, null, 'sets'))
     .catch(next)
+}
 
 export const show = ({ params }, res, next) =>
   Set.findById(params.id)
