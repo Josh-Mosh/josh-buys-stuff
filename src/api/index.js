@@ -3,6 +3,7 @@ import user from './user'
 import auth from './auth'
 import set from './set'
 import theme from './theme'
+import click from './click'
 
 const router = new Router()
 
@@ -33,5 +34,11 @@ router.use('/users', user)
 router.use('/auth', auth)
 router.use('/sets', set)
 router.use('/themes', theme)
+// router.use('/*', click)
+router.use('/:setId', click)
+// router.use('/:setId', function(req, res) {
+//   console.log('params /  ', req.params);
+//   res.send('Main Wildcard but 234 23');
+// });
 
 export default router
