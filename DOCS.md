@@ -5,11 +5,18 @@
 - [Auth](#auth)
 	- [Authenticate](#authenticate)
 	
-- [Sets](#sets)
-	- [Create sets](#create-sets)
-	- [Delete sets](#delete-sets)
-	- [Retrieve sets](#retrieve-sets)
-	- [Update sets](#update-sets)
+- [Set](#set)
+	- [Create set](#create-set)
+	- [Delete set](#delete-set)
+	- [Retrieve set](#retrieve-set)
+	- [Update set](#update-set)
+	
+- [Theme](#theme)
+	- [Create theme](#create-theme)
+	- [Delete theme](#delete-theme)
+	- [Retrieve theme](#retrieve-theme)
+	- [Retrieve themes](#retrieve-themes)
+	- [Update theme](#update-theme)
 	
 - [User](#user)
 	- [Create user](#create-user)
@@ -42,32 +49,13 @@
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Master access_token.</p>							|
 
-# Sets
+# Set
 
-## Create sets
-
-
-
-	POST /sets
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>admin access token.</p>							|
-| setId			| 			|  <p>Sets's setId.</p>							|
-| name			| 			|  <p>Sets's name.</p>							|
-| description			| 			|  <p>Sets's description.</p>							|
-| pieces			| 			|  <p>Sets's pieces.</p>							|
-| age			| 			|  <p>Sets's age.</p>							|
-| price			| 			|  <p>Sets's price.</p>							|
-
-## Delete sets
+## Create set
 
 
 
-	DELETE /sets/:id
+	POST /set
 
 
 ### Parameters
@@ -75,12 +63,31 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>admin access token.</p>							|
+| setId			| 			|  <p>Set's setId.</p>							|
+| name			| 			|  <p>Set's name.</p>							|
+| description			| 			|  <p>Set's description.</p>							|
+| pieces			| 			|  <p>Set's pieces.</p>							|
+| age			| 			|  <p>Set's age.</p>							|
+| price			| 			|  <p>Set's price.</p>							|
 
-## Retrieve sets
+## Delete set
 
 
 
-	GET /sets
+	DELETE /set/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>admin access token.</p>							|
+
+## Retrieve set
+
+
+
+	GET /set
 
 
 ### Parameters
@@ -93,11 +100,11 @@
 | sort			| String[]			| **optional** <p>Order of returned items.</p>							|
 | fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
 
-## Update sets
+## Update set
 
 
 
-	PUT /sets/:id
+	PUT /set/:id
 
 
 ### Parameters
@@ -105,12 +112,81 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>admin access token.</p>							|
-| setId			| 			|  <p>Sets's setId.</p>							|
-| name			| 			|  <p>Sets's name.</p>							|
-| description			| 			|  <p>Sets's description.</p>							|
-| pieces			| 			|  <p>Sets's pieces.</p>							|
-| age			| 			|  <p>Sets's age.</p>							|
-| price			| 			|  <p>Sets's price.</p>							|
+| setId			| 			|  <p>Set's setId.</p>							|
+| name			| 			|  <p>Set's name.</p>							|
+| description			| 			|  <p>Set's description.</p>							|
+| pieces			| 			|  <p>Set's pieces.</p>							|
+| age			| 			|  <p>Set's age.</p>							|
+| price			| 			|  <p>Set's price.</p>							|
+
+# Theme
+
+## Create theme
+
+
+
+	POST /themes
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>admin access token.</p>							|
+| name			| 			|  <p>Theme's name.</p>							|
+| logoUrl			| 			|  <p>Theme's logoUrl.</p>							|
+
+## Delete theme
+
+
+
+	DELETE /themes/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>admin access token.</p>							|
+
+## Retrieve theme
+
+
+
+	GET /themes/:id
+
+
+## Retrieve themes
+
+
+
+	GET /themes
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| q			| String			| **optional** <p>Query to search.</p>							|
+| page			| Number			| **optional** <p>Page number.</p>							|
+| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
+| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
+| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
+
+## Update theme
+
+
+
+	PUT /themes/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>admin access token.</p>							|
+| name			| 			|  <p>Theme's name.</p>							|
+| logoUrl			| 			|  <p>Theme's logoUrl.</p>							|
 
 # User
 
