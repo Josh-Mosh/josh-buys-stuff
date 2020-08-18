@@ -32,6 +32,9 @@ const setSchema = new Schema({
   favorite: {
     type: Boolean
   },
+  hidden: {
+    type: Boolean
+  },
   videoId: {
     type: String
   },
@@ -61,6 +64,7 @@ setSchema.methods = {
       imgUrl: this.imgUrl,
       affiliateLink: this.affiliateLink,
       favorite: this.favorite,
+      hidden: this.hidden,
       videoId: this.videoId,
       videoUploaded: this.videoUploaded,
       createdAt: this.createdAt,

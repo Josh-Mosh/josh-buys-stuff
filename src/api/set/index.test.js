@@ -31,6 +31,7 @@ test('POST /sets 201 (admin)', async () => {
       imgUrl: 'test',
       affiliateLink: 'test',
       favorite: true,
+      hidden: false,
       videoId: 'test',
     })
   expect(status).toBe(201)
@@ -44,6 +45,7 @@ test('POST /sets 201 (admin)', async () => {
   expect(body.imgUrl).toEqual('test')
   expect(body.affiliateLink).toEqual('test')
   expect(body.favorite).toEqual(true)
+  expect(body.hidden).toEqual(false)
   expect(body.videoId).toEqual('test')
 })
 
@@ -96,6 +98,7 @@ test('PUT /sets/:id 200 (admin)', async () => {
       imgUrl: 'test',
       affiliateLink: 'test',
       favorite: true,
+      hidden: false,
       videoId: 'test',
     })
   expect(status).toBe(200)
@@ -110,6 +113,7 @@ test('PUT /sets/:id 200 (admin)', async () => {
   expect(body.imgUrl).toEqual('test')
   expect(body.affiliateLink).toEqual('test')
   expect(body.favorite).toEqual(true)
+  expect(body.hidden).toEqual(false)
   expect(body.videoId).toEqual('test')
 })
 
