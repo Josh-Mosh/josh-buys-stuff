@@ -1,11 +1,12 @@
-import { Router } from 'express'
-import user from './user'
-import auth from './auth'
-import set from './set'
-import theme from './theme'
-import click from './click'
+import { Router } from 'express';
+import user from './user';
+import auth from './auth';
+import set from './set';
+import theme from './theme';
+import click from './click';
+import { clientDomain } from '../config';
 
-const router = new Router()
+const router = new Router();
 
 /**
  * @apiDefine master Master access only
@@ -30,15 +31,18 @@ const router = new Router()
  * @apiParam {String[]} [sort=-createdAt] Order of returned items.
  * @apiParam {String[]} [fields] Fields to be returned.
  */
-router.use('/users', user)
-router.use('/auth', auth)
-router.use('/sets', set)
-router.use('/themes', theme)
-// router.use('/*', click)
-router.use('/:setId', click)
-// router.use('/:setId', function(req, res) {
-//   console.log('params /  ', req.params);
-//   res.send('Main Wildcard but 234 23');
-// });
+router.use('/users', user);
+router.use('/auth', auth);
+router.use('/sets', set);
+router.use('/themes', theme);
+router.use('/:setId', click);
 
-export default router
+/* redirect all traffic that tries to visit root of api*/
+router.use('/', function(req, res, next) {
+  if (req.path === '/') {
+    res.redirect(clientDomain);
+  }
+  next();
+});
+
+export default router;
