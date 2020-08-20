@@ -28,6 +28,7 @@ const config = {
     apiRoot: process.env.API_ROOT || '',
     masterKey: requireProcessEnv('MASTER_KEY'),
     jwtSecret: requireProcessEnv('JWT_SECRET'),
+    clientDomain: process.env.CLIENT_DOMAIN || 'http://localhost:4200',
     mongo: {
       options: {
         useUnifiedTopology: true,
