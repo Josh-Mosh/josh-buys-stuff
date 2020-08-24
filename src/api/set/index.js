@@ -7,7 +7,22 @@ import { schema } from './model'
 export Set, { schema } from './model'
 
 const router = new Router()
-const { setId, name, description, pieces, age, price, imgUrl, affiliateLink, favorite, hidden, videoId, videoUploaded, theme } = schema.tree
+const {
+  setId,
+  name,
+  description,
+  pieces,
+  age,
+  price,
+  imgUrl,
+  fullLink,
+  affiliateLink,
+  favorite,
+  hidden,
+  videoId,
+  videoUploaded,
+  theme
+} = schema.tree;
 
 /**
  * @api {post} /set Create set
@@ -28,7 +43,7 @@ const { setId, name, description, pieces, age, price, imgUrl, affiliateLink, fav
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ setId, name, description, pieces, age, price, imgUrl, affiliateLink, favorite, hidden, videoId, videoUploaded, theme }),
+  body({ setId, name, description, pieces, age, price, imgUrl, fullLink, affiliateLink, favorite, hidden, videoId, videoUploaded, theme }),
   create)
 
 /**
@@ -74,7 +89,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ setId, name, description, pieces, age, price, imgUrl, affiliateLink, favorite, hidden, videoId, videoUploaded, theme }),
+  body({ setId, name, description, pieces, age, price, imgUrl, fullLink, affiliateLink, favorite, hidden, videoId, videoUploaded, theme }),
   update)
 
 /**

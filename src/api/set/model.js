@@ -26,6 +26,9 @@ const setSchema = new Schema({
   imgUrl: {
     type: String
   },
+  fullLink: {
+    type: String
+  },
   affiliateLink: {
     type: String
   },
@@ -62,6 +65,7 @@ setSchema.methods = {
       age: this.age,
       price: this.price,
       imgUrl: this.imgUrl,
+      fullLink: this.fullLink,
       affiliateLink: this.affiliateLink,
       favorite: this.favorite,
       hidden: this.hidden,
