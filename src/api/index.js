@@ -35,14 +35,14 @@ router.use('/users', user);
 router.use('/auth', auth);
 router.use('/sets', set);
 router.use('/themes', theme);
-router.use('/:setId', click);
+// router.use('/:setId', click);
 
 /* redirect all traffic that tries to visit root of api*/
-router.use('/', function(req, res, next) {
-  if (req.path === '/') {
-    res.redirect(clientDomain);
-  }
-  next();
-});
+// router.use('/', function(req, res, next) {
+//   if (req.path === '/') {
+//     res.redirect(clientDomain);
+//   }
+//   next();
+// });
 
 export default router;
