@@ -16,12 +16,13 @@ export const index = ({ query, select, cursor }, res, next) => {
     .catch(next)
 }
 
-export const show = ({ params }, res, next) =>
+export const show = ({ params }, res, next) => {
   Set.findById(params.id)
     .then(notFound(res))
     .then((set) => set ? set.view() : null)
     .then(success(res, null, 'set'))
     .catch(next)
+}
 
 export const update = ({ body, params }, res, next) => {
   let setToUpdate = body.set ? body.set : {};
@@ -33,9 +34,10 @@ export const update = ({ body, params }, res, next) => {
     .catch(next)
 }
 
-export const destroy = ({ params }, res, next) =>
+export const destroy = ({ params }, res, next) => {
   Set.findById(params.id)
     .then(notFound(res))
     .then((set) => set ? set.remove() : null)
     .then(success(res, 204))
     .catch(next)
+}
