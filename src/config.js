@@ -40,7 +40,7 @@ const config = {
   test: { },
   development: {
     mongo: {
-      uri: `mongodb://${process.env.LOCAL_MONGODB_URI}/jbs`,
+      uri: `mongodb://${process.env.LOCAL_DB_URI}/jbs`,
       // uri: 'mongodb://localhost/josh-buys-stuff-dev',
       options: {
         debug: true
@@ -51,7 +51,7 @@ const config = {
     ip: process.env.IP || undefined,
     port: process.env.PORT || 8080,
     mongo: {
-      uri: process.env.MONGODB_URI || 'mongodb://localhost/josh-buys-stuff'
+      uri: process.env.DB_URI || 'mongodb://localhost/josh-buys-stuff'
     }
   }
 }
